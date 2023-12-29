@@ -1,5 +1,13 @@
 # global-forest-polygons
 
+## Demo
+
+https://wipfli.github.io/global-forest-polygons
+
+<a href="https://wipfli.github.io/global-forest-polygons">
+<img src="screenshot.png" width=450>
+</a>
+
 ## Steps
 
 Download the ESA Worldcover GeoTiffs with:

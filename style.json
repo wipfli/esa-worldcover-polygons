@@ -20,7 +20,7 @@
             "id": "background",
             "type": "background",
             "paint": {
-                "background-color": "#75d4e8"
+                "background-color": "#c0eed9"
             }
         },
         {
@@ -29,7 +29,19 @@
             "source": "protomaps",
             "source-layer": "earth",
             "paint": {
-                "fill-color": "#beedd9"
+                "fill-color": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    0,
+                    "#c0eed9",
+                    7,
+                    "#cff6e0"
+                ]
             }
         },
         {
@@ -226,8 +238,8 @@
                     ],
                     0,
                     "#95e2c0",
-                    12,
-                    "#95e2c0"
+                    7,
+                    "#b4f0cd"
                 ]
             }
         },
@@ -3284,7 +3296,7 @@
                     7,
                     [
                         "*",
-                        0.65,
+                        0.55,
                         [
                             "case",
                             [
@@ -3341,7 +3353,7 @@
                     12,
                     [
                         "*",
-                        1.0,
+                        0.8,
                         [
                             "case",
                             [
