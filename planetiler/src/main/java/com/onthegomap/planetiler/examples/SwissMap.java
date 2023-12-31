@@ -76,6 +76,33 @@ public class SwissMap implements Profile {
         .setPixelTolerance(pixelTolerance);
     }
 
+    zoom += 1;
+
+    if (sourceName.equals("6")) {
+      features.polygon("forest")
+        .setMinZoom(zoom)
+        .setMaxZoom(14)
+        .setPixelTolerance(pixelTolerance);
+    }
+
+    zoom += 1;
+
+    if (sourceName.equals("7")) {
+      features.polygon("forest")
+        .setMinZoom(zoom)
+        .setMaxZoom(14)
+        .setPixelTolerance(pixelTolerance);
+    }
+
+    zoom += 1;
+
+    if (sourceName.equals("8")) {
+      features.polygon("forest")
+        .setMinZoom(zoom)
+        .setMaxZoom(14)
+        .setPixelTolerance(pixelTolerance);
+    }
+
   }
 
   @Override
@@ -107,7 +134,7 @@ public class SwissMap implements Profile {
 
   @Override
   public String attribution() {
-    return "ESA Worldcover";
+    return "<a href=\"https://worldcover2021.esa.int/\">ESA</a>";
   }
 
   public static void main(String[] args) throws Exception {
@@ -118,15 +145,18 @@ public class SwissMap implements Profile {
     
     Planetiler p = Planetiler.create(args)
       .setProfile(new SwissMap())
-      .overwriteOutput("mbtiles", Path.of("data", "output.mbtiles"));
+      .overwriteOutput("pmtiles", Path.of("data", "global-forest-polygons.pmtiles"));
     
     
-    p.addGeoPackageSource("EPSG:4326", "0", Path.of("../merged/0.zip"), "");
-    p.addGeoPackageSource("EPSG:4326", "1", Path.of("../merged/1.zip"), "");
-    p.addGeoPackageSource("EPSG:4326", "2", Path.of("../merged/2.zip"), "");
-    p.addGeoPackageSource("EPSG:4326", "3", Path.of("../merged/3.zip"), "");
-    p.addGeoPackageSource("EPSG:4326", "4", Path.of("../merged/4.zip"), "");
-    p.addGeoPackageSource("EPSG:4326", "5", Path.of("../merged/5.zip"), "");
+    p.addGeoPackageSource("EPSG:4326", "0", Path.of("../zips/0.zip"), "");
+    p.addGeoPackageSource("EPSG:4326", "1", Path.of("../zips/1.zip"), "");
+    p.addGeoPackageSource("EPSG:4326", "2", Path.of("../zips/2.zip"), "");
+    p.addGeoPackageSource("EPSG:4326", "3", Path.of("../zips/3.zip"), "");
+    p.addGeoPackageSource("EPSG:4326", "4", Path.of("../zips/4.zip"), "");
+    p.addGeoPackageSource("EPSG:4326", "5", Path.of("../zips/5.zip"), "");
+    p.addGeoPackageSource("EPSG:4326", "6", Path.of("../zips/6.zip"), "");
+    p.addGeoPackageSource("EPSG:4326", "7", Path.of("../zips/7.zip"), "");
+    p.addGeoPackageSource("EPSG:4326", "8", Path.of("../zips/8.zip"), "");
 
     p.run();
   }

@@ -10,6 +10,5 @@ def to_gpkg(k):
             print(command)
             subprocess.run(command, shell=True)
 
-to_gpkg(6)
-to_gpkg(7)
-to_gpkg(8)
+for k in range(5 + 1):
+    to_gpkg(k)

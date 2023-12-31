@@ -42,4 +42,10 @@ To GPKG:
 python3 to_gpkg.py
 ```
 
+To zip:
+
+```bash
+python3 to_zip.py
+```
+
 Run planetiler
