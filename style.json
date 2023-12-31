@@ -285,7 +285,7 @@
                 "glacier"
             ],
             "paint": {
-                "fill-color": "#e7e7e7"
+                "fill-color": "white"
             }
         },
         {
@@ -3411,7 +3411,7 @@
                 "text-font": [
                     "roboto"
                 ],
-                "visibility": "visible",
+                "visibility": "none",
                 "symbol-sort-key": [
                     "-",
                     [

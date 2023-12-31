@@ -36,10 +36,10 @@ Filter samples and polygonize them with:
 python3 filter.py
 ```
 
-Merge polygons of the same `k` value with:
+To GPKG:
 
 ```bash
-python3 merge.py
+python3 to_gpkg.py
 ```
 
 Run planetiler

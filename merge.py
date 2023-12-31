@@ -23,5 +23,5 @@ def merge(k):
     print(command)
     subprocess.run(command, shell=True)
 
-for k in range(5):
+for k in [6, 7, 8]:
     merge(k)

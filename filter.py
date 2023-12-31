@@ -152,6 +152,8 @@ def run(sample_i, sample_j, sample_k):
     with open(out_filename, 'w') as f:
         json.dump(data, f)
 
+    # convert to gpkg here, then to_gpkg.py is not needed...
+
     command = 'rm corners.tif filtered.tif polygon.gpkg polygon.geojson projected.tif sieved.tif value.tif'
     print(command)
     subprocess.run(command, shell=True)
