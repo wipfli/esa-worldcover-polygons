@@ -20,9 +20,9 @@ Using the ESA Worldcover polygons from this repo requires attribution to the ori
 
 ## Demo
 
-https://wipfli.github.io/global-forest-polygons
+https://wipfli.github.io/esa-worldcover-polygons
 
-<a href="https://wipfli.github.io/global-forest-polygons">
+<a href="https://wipfli.github.io/esa-worldcover-polygons">
 <img src="screenshot.png" width=450>
 </a>
 
