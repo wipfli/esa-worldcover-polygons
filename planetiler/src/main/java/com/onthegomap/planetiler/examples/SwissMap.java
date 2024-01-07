@@ -164,17 +164,17 @@ public class SwissMap implements Profile {
 
   @Override
   public String name() {
-    return "Global Forest Polygons";
+    return "ESA Worldcover Polygons";
   }
 
   @Override
   public String description() {
-    return "Global Forest Polygons";
+    return "ESA Worldcover Polygons";
   }
 
   @Override
   public String attribution() {
-    return "<a href=\"https://worldcover2021.esa.int/\">ESA Worldcover</a>";
+    return "<a href=\"https://worldcover2021.esa.int/\">©ESA Worldcover</a>";
   }
 
   public static void main(String[] args) throws Exception {
@@ -185,7 +185,7 @@ public class SwissMap implements Profile {
     
     Planetiler p = Planetiler.create(args)
       .setProfile(new SwissMap())
-      .overwriteOutput("pmtiles", Path.of("data", "global-forest-polygons.pmtiles"));
+      .overwriteOutput("pmtiles", Path.of("data", "esa-worldcover-polygons.pmtiles"));
     
     
     int[] categories = {10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100, 110};

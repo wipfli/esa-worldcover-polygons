@@ -34,7 +34,7 @@ https://pub-726b01260c98468a9387cc0dfcb7386b.r2.dev/esa-worldcover-polygons-gpkg
 
 Vector tiles (3.97 GB):
 
-https://pub-726b01260c98468a9387cc0dfcb7386b.r2.dev/esa-landcover-polygons.pmtiles
+https://pub-726b01260c98468a9387cc0dfcb7386b.r2.dev/esa-worldcover-polygons.pmtiles
 
 ## Steps
 

@@ -3,7 +3,7 @@
     "sources": {
         "global-forest-polygons": {
             "type": "vector",
-            "url": "http://144.76.45.111:8081/data/pmtiles.json"
+            "url": "https://tiles.swiss-map.cc/esa-worldcover-polygons.json"
         }
     },
     "layers": [
