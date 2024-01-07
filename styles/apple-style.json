@@ -1,0 +1,98 @@
+{
+    "version": 8,
+    "sources": {
+        "global-forest-polygons": {
+            "type": "vector",
+            "url": "https://tiles.swiss-map.cc/esa-worldcover-polygons.json"
+        }
+    },
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "paint": {
+                "background-color": "white"
+            }
+        },
+        {
+            "id": "landcover-land",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Land"],
+            "paint": {
+                "fill-color": "#ceebb3"
+            }
+        },
+        {
+            "id": "landcover-grass",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Grassland"],
+            "paint": {
+                "fill-color": "#ceebb3"
+            }
+        },
+        {
+            "id": "landcover-crops",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Cropland"],
+            "paint": {
+                "fill-color": "#daecb6"
+            }
+        },
+        {
+            "id": "landcover-bare",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Bare / sparse vegetation"],
+            "paint": {
+                "fill-color": "#f4edd9"
+            }
+        },
+        {
+            "id": "landcover-snow",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Snow and ice"],
+            "paint": {
+                "fill-color": "#fff"
+            }
+        },
+        {
+            "id": "landcover-built-up",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Built-up"],
+            "paint": {
+                "fill-color": "#f1f0ea"
+            }
+        },
+        {
+            "id": "landcover-forest",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Tree cover"],
+            "paint": {
+                "fill-color": "#c2e2a3"
+            }
+        },
+        {
+            "id": "landcover-water",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Permanent water bodies"],
+            "paint": {
+                "fill-color": "#8cdbf6"
+            }
+        }
+    ]
+}

@@ -1,0 +1,138 @@
+{
+    "version": 8,
+    "sources": {
+        "global-forest-polygons": {
+            "type": "vector",
+            "url": "https://tiles.swiss-map.cc/esa-worldcover-polygons.json"
+        }
+    },
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "paint": {
+                "background-color": "purple"
+            }
+        },
+        {
+            "id": "landcover-110",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Land"],
+            "paint": {
+                "fill-color": "white"
+            }
+        },
+        {
+            "id": "landcover-10",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Tree cover"],
+            "paint": {
+                "fill-color": "rgb(0,100,0)"
+            }
+        },
+        {
+            "id": "landcover-20",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Shrubland"],
+            "paint": {
+                "fill-color": "rgb(255,187,34)"
+            }
+        },
+        {
+            "id": "landcover-30",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Grassland"],
+            "paint": {
+                "fill-color": "rgb(255,255,76)"
+            }
+        },
+        {
+            "id": "landcover-40",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Cropland"],
+            "paint": {
+                "fill-color": "rgb(240,150,255)"
+            }
+        },
+        {
+            "id": "landcover-50",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Built-up"],
+            "paint": {
+                "fill-color": "rgb(250,0,0)"
+            }
+        },
+        {
+            "id": "landcover-60",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Bare / sparse vegetation"],
+            "paint": {
+                "fill-color": "rgb(180,180,180)"
+            }
+        },
+        {
+            "id": "landcover-70",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Snow and ice"],
+            "paint": {
+                "fill-color": "rgb(240,240,240)"
+            }
+        },
+        {
+            "id": "landcover-80",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Permanent water bodies"],
+            "paint": {
+                "fill-color": "rgb(0,100,200)"
+            }
+        },
+        {
+            "id": "landcover-90",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Herbaceous wetland"],
+            "paint": {
+                "fill-color": "rgb(0,150,160)"
+            }
+        },
+        {
+            "id": "landcover-95",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Mangroves"],
+            "paint": {
+                "fill-color": "rgb(0,207,117)"
+            }
+        },
+        {
+            "id": "landcover-100",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "landcover",
+            "filter": ["==", ["get", "category"], "Moss and lichen"],
+            "paint": {
+                "fill-color": "rgb(250,230,160)"
+            }
+        }
+    ]
+}

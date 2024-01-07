@@ -3,9 +3,6 @@ import subprocess
 import json
 from osgeo import gdal
 
-
-
-
 def get_ullr_from_tif(tif_path):
     # Open the GeoTIFF file
     dataset = gdal.Open(tif_path)
@@ -28,26 +25,51 @@ def get_ullr_from_tif(tif_path):
 
     return x_min, y_max, x_max, y_min
 
+# value is:
+#
+# 10 Tree cover (Forest)
+# 20 Shrubland (Shrub)
+# 30 Grassland (Grass)
+# 40 Cropland (Crop)
+# 50 Built-up (Urban)
+# 60 Bare / sparse vegetation (Barren)
+# 70 Snow and ice (Snow)
+# 80 Permanent water bodies (Water), includes NoData 
+# 90 Herbaceous wetland (Shrub?)
+# 95 Mangroves (Shrub?)
+# 100 Moss and lichen (Shrub?)
+# 110 Land (not in ESA or Daylight): Everything which is not Water or NoData
+#
+# Daylight categories: Snow, Forest, Urban, Grass, Crop, Barren, Water, and Shrub
 
-def run(sample_i, sample_j, sample_k):
+def run(sample_i, sample_j, sample_k, value):
     source_filename = f'samples/{sample_k}/{sample_i}/{sample_j}.tif'
 
-    command = f'gdal_edit.py -unsetnodata {source_filename}'
+    command = f'gdal_edit.py -a_nodata 0 {source_filename}'
     print(command)
     subprocess.run(command, shell=True)
 
     print('selecting value...')
 
-    value = 10 # forest 10, water 80
-
     expressions = []
-    expressions += [f"(A=={value})*255"]
+
+    if value == 80:
+        # special behavior water (80): include nodata (0)
+        expressions += [f"(A==80)*255"]
+        expressions += [f"(A==0)*255"]
+    elif value == 110:
+        # special behavior land (110): all not water (80) and not nodata (0)
+        expressions += [f"(A!=80)*255"]
+    else:
+        expressions += [f"(A=={value})*255"]
 
     calc = ' + '.join(expressions)
 
     in_filename = source_filename
     out_filename = 'value.tif'
     command = f'gdal_calc.py -A {in_filename} --calc="{calc}" --outfile="{out_filename}" --co COMPRESS=LZW --overwrite'
+    if value != 80:
+        command += ' --NoDataValue=0'
     print(command)
     subprocess.run(command, shell=True)
 
@@ -120,7 +142,6 @@ def run(sample_i, sample_j, sample_k):
     command = f'ogr2ogr -f GeoJSON {out_filename} polygon.gpkg -where "\"DN\" == 255"'
     subprocess.run(command, shell=True)
 
-
     print('midpoint...')
     in_filename = out_filename
     with open(in_filename) as f:
@@ -143,26 +164,28 @@ def run(sample_i, sample_j, sample_k):
                 new_ring.append(list(new_ring[0]))
                 feature['geometry']['coordinates'][j] = new_ring
 
-    command = f'mkdir -p polygons/{sample_k}/{sample_i}'
-    print(command)
-    subprocess.run(command, shell=True)
-
-    out_filename = f'polygons/{sample_k}/{sample_i}/{sample_j}.geojson'
+    out_filename = f'polygon2.geojson'
 
     with open(out_filename, 'w') as f:
         json.dump(data, f)
-
-    # convert to gpkg here, then to_gpkg.py is not needed...
-
-    command = 'rm corners.tif filtered.tif polygon.gpkg polygon.geojson projected.tif sieved.tif value.tif'
+    
+    command = f'mkdir -p polygons/{value}/{sample_k}/{sample_i}'
     print(command)
     subprocess.run(command, shell=True)
 
+    command = f'ogr2ogr polygons/{value}/{sample_k}/{sample_i}/{sample_j}.gpkg {out_filename}'
+    print(command)
+    subprocess.run(command, shell=True)
 
-k_min = 6
+    command = 'rm corners.tif filtered.tif polygon.gpkg polygon.geojson polygon2.geojson projected.tif sieved.tif value.tif'
+    print(command)
+    subprocess.run(command, shell=True)
+
+k_min = 8
 k_max = 8
 
-for k in range(k_min, k_max + 1):
-    for i in range(2 ** k):
-        for j in range(2 ** k):
-            run(i, j, k)
+for value in [10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100, 110]:
+    for k in range(k_min, k_max + 1):
+        for i in range(2 ** k):
+            for j in range(2 ** k):
+                run(i, j, k, value)
