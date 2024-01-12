@@ -125,12 +125,12 @@ public class SwissMap implements Profile {
 
   @Override
   public String name() {
-    return "ESA Worldcover Polygons";
+    return "Global Landcover";
   }
 
   @Override
   public String description() {
-    return "ESA Worldcover Polygons";
+    return "Land cover as polygons for the whole world, the following coverages are classified: tree, shrub, grass, crop, urban, barren, ice, water, herbaceous, mangroves, moss and land";
   }
 
   @Override
