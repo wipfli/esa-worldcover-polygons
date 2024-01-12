@@ -26,43 +26,43 @@ public class SwissMap implements Profile {
 
     String[] sourceNameParts = sourceName.split("-");
 
-    String category = "";
+    String classification = "";
     switch (sourceNameParts[0]) {
       case "10":
-        category = "Tree cover";
+        classification = "Tree cover";
         break;
       case "20":
-        category = "Shrubland";
+        classification = "Shrubland";
         break;
       case "30":
-        category = "Grassland";
+        classification = "Grassland";
         break;
       case "40":
-        category = "Cropland";
+        classification = "Cropland";
         break;
       case "50":
-        category = "Built-up";
+        classification = "Built-up";
         break;
       case "60":
-        category = "Bare / sparse vegetation";
+        classification = "Bare / sparse vegetation";
         break;
       case "70":
-        category = "Snow and ice";
+        classification = "Snow and ice";
         break;
       case "80":
-        category = "Permanent water bodies";
+        classification = "Permanent water bodies";
         break;
       case "90":
-        category = "Herbaceous wetland";
+        classification = "Herbaceous wetland";
         break;
       case "95":
-        category = "Mangroves";
+        classification = "Mangroves";
         break;
       case "100":
-        category = "Moss and lichen";
+        classification = "Moss and lichen";
         break;
       case "110":
-        category = "Land";
+        classification = "Land";
         break;
     }
 
@@ -107,7 +107,7 @@ public class SwissMap implements Profile {
     features.polygon("landcover")
             .setMinZoom(minZoom)
             .setMaxZoom(maxZoom)
-            .setAttr("category", category)
+            .setAttr("class", classification)
             .setPixelTolerance(pixelTolerance);
   }
 
