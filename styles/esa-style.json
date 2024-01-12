@@ -18,8 +18,8 @@
             "id": "landcover-110",
             "type": "fill",
             "source": "global-forest-polygons",
-            "source-layer": "landcover",
-            "filter": ["==", ["get", "category"], "Land"],
+            "source-layer": "globallandcover",
+            "filter": ["all", ["==", "class", "land"]],
             "paint": {
                 "fill-color": "white"
             }
@@ -28,8 +28,8 @@
             "id": "landcover-10",
             "type": "fill",
             "source": "global-forest-polygons",
-            "source-layer": "landcover",
-            "filter": ["==", ["get", "category"], "Tree cover"],
+            "source-layer": "globallandcover",
+            "filter": ["all", ["==", "class", "tree"]],
             "paint": {
                 "fill-color": "rgb(0,100,0)"
             }
@@ -38,8 +38,8 @@
             "id": "landcover-20",
             "type": "fill",
             "source": "global-forest-polygons",
-            "source-layer": "landcover",
-            "filter": ["==", ["get", "category"], "Shrubland"],
+            "source-layer": "globallandcover",
+            "filter": ["all", ["==", "class", "shrub"]],
             "paint": {
                 "fill-color": "rgb(255,187,34)"
             }
@@ -48,8 +48,8 @@
             "id": "landcover-30",
             "type": "fill",
             "source": "global-forest-polygons",
-            "source-layer": "landcover",
-            "filter": ["==", ["get", "category"], "Grassland"],
+            "source-layer": "globallandcover",
+            "filter": ["all", ["==", "class", "grass"]],
             "paint": {
                 "fill-color": "rgb(255,255,76)"
             }
@@ -58,8 +58,8 @@
             "id": "landcover-40",
             "type": "fill",
             "source": "global-forest-polygons",
-            "source-layer": "landcover",
-            "filter": ["==", ["get", "category"], "Cropland"],
+            "source-layer": "globallandcover",
+            "filter": ["all", ["==", "class", "crop"]],
             "paint": {
                 "fill-color": "rgb(240,150,255)"
             }
@@ -68,8 +68,8 @@
             "id": "landcover-50",
             "type": "fill",
             "source": "global-forest-polygons",
-            "source-layer": "landcover",
-            "filter": ["==", ["get", "category"], "Built-up"],
+            "source-layer": "globallandcover",
+            "filter": ["all", ["==", "class", "urban"]],
             "paint": {
                 "fill-color": "rgb(250,0,0)"
             }
@@ -78,8 +78,8 @@
             "id": "landcover-60",
             "type": "fill",
             "source": "global-forest-polygons",
-            "source-layer": "landcover",
-            "filter": ["==", ["get", "category"], "Bare / sparse vegetation"],
+            "source-layer": "globallandcover",
+            "filter": ["all", ["==", "class", "barren"]],
             "paint": {
                 "fill-color": "rgb(180,180,180)"
             }
@@ -88,8 +88,8 @@
             "id": "landcover-70",
             "type": "fill",
             "source": "global-forest-polygons",
-            "source-layer": "landcover",
-            "filter": ["==", ["get", "category"], "Snow and ice"],
+            "source-layer": "globallandcover",
+            "filter": ["all", ["==", "class", "ice"]],
             "paint": {
                 "fill-color": "rgb(240,240,240)"
             }
@@ -98,8 +98,8 @@
             "id": "landcover-80",
             "type": "fill",
             "source": "global-forest-polygons",
-            "source-layer": "landcover",
-            "filter": ["==", ["get", "category"], "Permanent water bodies"],
+            "source-layer": "globallandcover",
+            "filter": ["all", ["==", "class", "water"]],
             "paint": {
                 "fill-color": "rgb(0,100,200)"
             }
@@ -108,8 +108,8 @@
             "id": "landcover-90",
             "type": "fill",
             "source": "global-forest-polygons",
-            "source-layer": "landcover",
-            "filter": ["==", ["get", "category"], "Herbaceous wetland"],
+            "source-layer": "globallandcover",
+            "filter": ["all", ["==", "class", "herbaceous"]],
             "paint": {
                 "fill-color": "rgb(0,150,160)"
             }
@@ -118,8 +118,8 @@
             "id": "landcover-95",
             "type": "fill",
             "source": "global-forest-polygons",
-            "source-layer": "landcover",
-            "filter": ["==", ["get", "category"], "Mangroves"],
+            "source-layer": "globallandcover",
+            "filter": ["all", ["==", "class", "mangroves"]],
             "paint": {
                 "fill-color": "rgb(0,207,117)"
             }
@@ -128,8 +128,8 @@
             "id": "landcover-100",
             "type": "fill",
             "source": "global-forest-polygons",
-            "source-layer": "landcover",
-            "filter": ["==", ["get", "category"], "Moss and lichen"],
+            "source-layer": "globallandcover",
+            "filter": ["all", ["==", "class", "moss"]],
             "paint": {
                 "fill-color": "rgb(250,230,160)"
             }
