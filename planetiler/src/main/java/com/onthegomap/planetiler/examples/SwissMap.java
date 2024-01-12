@@ -29,40 +29,40 @@ public class SwissMap implements Profile {
     String classification = "";
     switch (sourceNameParts[0]) {
       case "10":
-        classification = "Tree cover";
+        classification = "tree";
         break;
       case "20":
-        classification = "Shrubland";
+        classification = "shrub";
         break;
       case "30":
-        classification = "Grassland";
+        classification = "grass";
         break;
       case "40":
-        classification = "Cropland";
+        classification = "crop";
         break;
       case "50":
-        classification = "Built-up";
+        classification = "urban";
         break;
       case "60":
-        classification = "Bare / sparse vegetation";
+        classification = "barren";
         break;
       case "70":
-        classification = "Snow and ice";
+        classification = "ice";
         break;
       case "80":
-        classification = "Permanent water bodies";
+        classification = "water";
         break;
       case "90":
-        classification = "Herbaceous wetland";
+        classification = "herbaceous";
         break;
       case "95":
-        classification = "Mangroves";
+        classification = "mangroves";
         break;
       case "100":
-        classification = "Moss and lichen";
+        classification = "moss";
         break;
       case "110":
-        classification = "Land";
+        classification = "land";
         break;
     }
 
