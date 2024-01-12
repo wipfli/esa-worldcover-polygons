@@ -24,125 +24,91 @@ public class SwissMap implements Profile {
     Double pixelTolerance = 0.0; // 0.5;
     String sourceName = sourceFeature.getSource();
 
+    String[] sourceNameParts = sourceName.split("-");
+
     String category = "";
-    if (sourceName.startsWith("10-")) {
-      category = "Tree cover";
-    }
-    if (sourceName.startsWith("20-")) {
-      category = "Shrubland";
-    }
-    if (sourceName.startsWith("30-")) {
-      category = "Grassland";
-    }
-    if (sourceName.startsWith("40-")) {
-      category = "Cropland";
-    }
-    if (sourceName.startsWith("50-")) {
-      category = "Built-up";
-    }
-    if (sourceName.startsWith("60-")) {
-      category = "Bare / sparse vegetation";
-    }
-    if (sourceName.startsWith("70-")) {
-      category = "Snow and ice";
-    }
-    if (sourceName.startsWith("80-")) {
-      category = "Permanent water bodies";
-    }
-    if (sourceName.startsWith("90-")) {
-      category = "Herbaceous wetland";
-    }
-    if (sourceName.startsWith("95-")) {
-      category = "Mangroves";
-    }
-    if (sourceName.startsWith("100-")) {
-      category = "Moss and lichen";
-    }
-    if (sourceName.startsWith("110-")) {
-      category = "Land";
-    }
-
-    Integer zoom = 3;
-
-    if (sourceName.endsWith("-0")) {
-      features.polygon("landcover")
-        .setMinZoom(0)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
+    switch (sourceNameParts[0]) {
+      case "10":
+        category = "Tree cover";
+        break;
+      case "20":
+        category = "Shrubland";
+        break;
+      case "30":
+        category = "Grassland";
+        break;
+      case "40":
+        category = "Cropland";
+        break;
+      case "50":
+        category = "Built-up";
+        break;
+      case "60":
+        category = "Bare / sparse vegetation";
+        break;
+      case "70":
+        category = "Snow and ice";
+        break;
+      case "80":
+        category = "Permanent water bodies";
+        break;
+      case "90":
+        category = "Herbaceous wetland";
+        break;
+      case "95":
+        category = "Mangroves";
+        break;
+      case "100":
+        category = "Moss and lichen";
+        break;
+      case "110":
+        category = "Land";
+        break;
     }
 
-    zoom = 4;
-    if (sourceName.endsWith("-1")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
+    Integer minZoom = 0;
+    Integer maxZoom = 3;
+
+    switch (sourceNameParts[1]) {
+      case "0":
+        minZoom = 0;
+        maxZoom = 3;
+        break;
+      case "1":
+        minZoom = 4;
+        maxZoom = 4;
+        break;
+      case "2":
+        minZoom = 5;
+        maxZoom = 5;
+        break;
+      case "3":
+        minZoom = 6;
+        maxZoom = 6;
+        break;
+      case "4":
+        minZoom = 7;
+        maxZoom = 7;
+        break;
+      case "5":
+        minZoom = 8;
+        maxZoom = 8;
+        break;
+      case "6":
+        minZoom = 9;
+        maxZoom = 9;
+        break;
+      case "7":
+        minZoom = 10;
+        maxZoom = 10;
+        break;
     }
 
-    zoom = 5;
-    if (sourceName.endsWith("-2")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
-
-    zoom = 6;
-    if (sourceName.endsWith("-3")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
-
-    zoom = 7;
-    if (sourceName.endsWith("-4")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
-
-    zoom = 8;
-    if (sourceName.endsWith("-5")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
-
-    zoom = 9;
-    if (sourceName.endsWith("-6")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
-
-    zoom = 10;
-    if (sourceName.endsWith("-7")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
-
-    zoom = 11;
-    if (sourceName.endsWith("-8")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
+    features.polygon("landcover")
+            .setMinZoom(minZoom)
+            .setMaxZoom(maxZoom)
+            .setAttr("category", category)
+            .setPixelTolerance(pixelTolerance);
   }
 
   @Override
