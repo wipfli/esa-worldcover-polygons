@@ -114,18 +114,13 @@ public class SwissMap implements Profile {
   @Override
   public List<VectorTile.Feature> postProcessLayerFeatures(String layer, int zoom,
     List<VectorTile.Feature> items) {
-
-    if ("landcover".equals(layer)) {
-      try {
-        double area = 4.0;
-        return FeatureMerge.mergeNearbyPolygons(items, area, area, 1, 1);
-      }
-      catch (GeometryException e) {
-        return null;
-      }
+    try {
+      double area = 4.0;
+      return FeatureMerge.mergeNearbyPolygons(items, area, area, 1, 1);
     }
-
-    return null;
+    catch (GeometryException e) {
+      return null;
+    }
   }
 
   @Override
