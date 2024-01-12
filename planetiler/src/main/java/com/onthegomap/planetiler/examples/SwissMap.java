@@ -104,7 +104,7 @@ public class SwissMap implements Profile {
         break;
     }
 
-    features.polygon("landcover")
+    features.polygon("globallandcover")
             .setMinZoom(minZoom)
             .setMaxZoom(maxZoom)
             .setAttr("class", classification)
