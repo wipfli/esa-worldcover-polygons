@@ -135,7 +135,7 @@ public class SwissMap implements Profile {
 
   @Override
   public String attribution() {
-    return "<a href=\"https://worldcover2021.esa.int/\">©ESA Worldcover</a>";
+    return "<a href=\"https://worldcover2020.esa.int\">© ESA WorldCover project / Contains modified Copernicus Sentinel data (2020) processed by ESA WorldCover consortium</a>";
   }
 
   public static void main(String[] args) throws Exception {
