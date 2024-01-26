@@ -24,157 +24,118 @@ public class SwissMap implements Profile {
     Double pixelTolerance = 0.0; // 0.5;
     String sourceName = sourceFeature.getSource();
 
-    String category = "";
-    if (sourceName.startsWith("10-")) {
-      category = "Tree cover";
-    }
-    if (sourceName.startsWith("20-")) {
-      category = "Shrubland";
-    }
-    if (sourceName.startsWith("30-")) {
-      category = "Grassland";
-    }
-    if (sourceName.startsWith("40-")) {
-      category = "Cropland";
-    }
-    if (sourceName.startsWith("50-")) {
-      category = "Built-up";
-    }
-    if (sourceName.startsWith("60-")) {
-      category = "Bare / sparse vegetation";
-    }
-    if (sourceName.startsWith("70-")) {
-      category = "Snow and ice";
-    }
-    if (sourceName.startsWith("80-")) {
-      category = "Permanent water bodies";
-    }
-    if (sourceName.startsWith("90-")) {
-      category = "Herbaceous wetland";
-    }
-    if (sourceName.startsWith("95-")) {
-      category = "Mangroves";
-    }
-    if (sourceName.startsWith("100-")) {
-      category = "Moss and lichen";
-    }
-    if (sourceName.startsWith("110-")) {
-      category = "Land";
+    String[] sourceNameParts = sourceName.split("-");
+
+    String classification = "";
+    switch (sourceNameParts[0]) {
+      case "10":
+        classification = "tree";
+        break;
+      case "20":
+        classification = "shrub";
+        break;
+      case "30":
+        classification = "grass";
+        break;
+      case "40":
+        classification = "crop";
+        break;
+      case "50":
+        classification = "urban";
+        break;
+      case "60":
+        classification = "barren";
+        break;
+      case "70":
+        classification = "ice";
+        break;
+      case "80":
+        classification = "water";
+        break;
+      case "90":
+        classification = "herbaceous";
+        break;
+      case "95":
+        classification = "mangroves";
+        break;
+      case "100":
+        classification = "moss";
+        break;
+      case "110":
+        classification = "land";
+        break;
     }
 
-    Integer zoom = 3;
+    Integer minZoom = 0;
+    Integer maxZoom = 3;
 
-    if (sourceName.endsWith("-0")) {
-      features.polygon("landcover")
-        .setMinZoom(0)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
+    switch (sourceNameParts[1]) {
+      case "0":
+        minZoom = 0;
+        maxZoom = 3;
+        break;
+      case "1":
+        minZoom = 4;
+        maxZoom = 4;
+        break;
+      case "2":
+        minZoom = 5;
+        maxZoom = 5;
+        break;
+      case "3":
+        minZoom = 6;
+        maxZoom = 6;
+        break;
+      case "4":
+        minZoom = 7;
+        maxZoom = 7;
+        break;
+      case "5":
+        minZoom = 8;
+        maxZoom = 8;
+        break;
+      case "6":
+        minZoom = 9;
+        maxZoom = 9;
+        break;
+      case "7":
+        minZoom = 10;
+        maxZoom = 10;
+        break;
     }
 
-    zoom = 4;
-    if (sourceName.endsWith("-1")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
-
-    zoom = 5;
-    if (sourceName.endsWith("-2")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
-
-    zoom = 6;
-    if (sourceName.endsWith("-3")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
-
-    zoom = 7;
-    if (sourceName.endsWith("-4")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
-
-    zoom = 8;
-    if (sourceName.endsWith("-5")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
-
-    zoom = 9;
-    if (sourceName.endsWith("-6")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
-
-    zoom = 10;
-    if (sourceName.endsWith("-7")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
-
-    zoom = 11;
-    if (sourceName.endsWith("-8")) {
-      features.polygon("landcover")
-        .setMinZoom(zoom)
-        .setMaxZoom(zoom)
-        .setAttr("category", category)
-        .setPixelTolerance(pixelTolerance);
-    }
+    features.polygon("globallandcover")
+            .setMinZoom(minZoom)
+            .setMaxZoom(maxZoom)
+            .setAttr("class", classification)
+            .setPixelTolerance(pixelTolerance);
   }
 
   @Override
   public List<VectorTile.Feature> postProcessLayerFeatures(String layer, int zoom,
     List<VectorTile.Feature> items) {
-
-    if ("landcover".equals(layer)) {
-      try {
-        double area = 4.0;
-        return FeatureMerge.mergeNearbyPolygons(items, area, area, 1, 1);
-      }
-      catch (GeometryException e) {
-        return null;
-      }
+    try {
+      double area = 4.0;
+      return FeatureMerge.mergeNearbyPolygons(items, area, area, 1, 1);
     }
-
-    return null;
+    catch (GeometryException e) {
+      return null;
+    }
   }
 
   @Override
   public String name() {
-    return "ESA Worldcover Polygons";
+    return "Global Landcover";
   }
 
   @Override
   public String description() {
-    return "ESA Worldcover Polygons";
+    return "Land cover as polygons for the whole world, the following coverages are classified: tree, shrub, grass, crop, urban, barren, ice, water, herbaceous, mangroves, moss and land";
   }
 
   @Override
   public String attribution() {
-    return "<a href=\"https://worldcover2021.esa.int/\">©ESA Worldcover</a>";
+    return "<a href=\"https://worldcover2020.esa.int\">© ESA WorldCover project / Contains modified Copernicus Sentinel data (2020) processed by ESA WorldCover consortium</a>";
   }
 
   public static void main(String[] args) throws Exception {
