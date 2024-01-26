@@ -41,7 +41,7 @@
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "barren"]],
             "paint": {
-                "fill-color": "#f3ede0"
+                "fill-color": "#fbf8f3"
             }
         },
         {
@@ -91,7 +91,7 @@
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "water"]],
             "paint": {
-                "fill-color": "#9cc0fa"
+                "fill-color": "#8ab4f8"
             }
         }
     ]
