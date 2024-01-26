@@ -21,7 +21,7 @@ public class SwissMap implements Profile {
   @Override
   public void processFeature(SourceFeature sourceFeature, FeatureCollector features) {
 
-    Double pixelTolerance = 0.0; // 0.5;
+    Double pixelTolerance = 0.5;
     String sourceName = sourceFeature.getSource();
 
     String[] sourceNameParts = sourceName.split("-");
@@ -102,6 +102,10 @@ public class SwissMap implements Profile {
         minZoom = 10;
         maxZoom = 10;
         break;
+      case "8":
+        minZoom = 11;
+        maxZoom = 11;
+        break;
     }
 
     features.polygon("globallandcover")
@@ -135,7 +139,7 @@ public class SwissMap implements Profile {
 
   @Override
   public String attribution() {
-    return "<a href=\"https://worldcover2020.esa.int\">© ESA WorldCover project / Contains modified Copernicus Sentinel data (2020) processed by ESA WorldCover consortium</a>";
+    return "<a href=\"https://worldcover2020.esa.int\">©ESA WorldCover</a>";
   }
 
   public static void main(String[] args) throws Exception {
@@ -151,7 +155,7 @@ public class SwissMap implements Profile {
     
     int[] categories = {10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100, 110};
     for (int category : categories) {
-      for (int k = 0; k <= 7; ++k) {
+      for (int k = 0; k <= 8; ++k) {
         p.addGeoPackageSource("EPSG:4326", String.format("%d-%d", category, k), Path.of(String.format("../zips/%d-%d.zip", category, k)), "");
       }
     }
