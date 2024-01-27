@@ -28,11 +28,11 @@ https://wipfli.github.io/esa-worldcover-polygons
 
 ## Downloads
 
-GeoPackage polygons (15.94 GB):
+GeoPackage polygons (55.35 GB):
 
 https://pub-726b01260c98468a9387cc0dfcb7386b.r2.dev/esa-worldcover-polygons-gpkg.tar
 
-Vector tiles (3.97 GB):
+Vector tiles (6.31 GB):
 
 https://pub-726b01260c98468a9387cc0dfcb7386b.r2.dev/esa-worldcover-polygons.pmtiles
 
