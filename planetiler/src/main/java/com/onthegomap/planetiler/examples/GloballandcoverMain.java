@@ -31,14 +31,16 @@ public class GloballandcoverMain {
         .addShapefileSource(GloballandcoverProfile.GLACIATED_AREAS_SOURCE,
             sourcesDir.resolve("ne_10m_glaciated_areas.zip"),
             "https://naciscdn.org/naturalearth/10m/physical/ne_10m_glaciated_areas.zip")
-        .setOutput("mbtiles", dataDir.resolve("output.mbtiles"));
+        .addShapefileSource(GloballandcoverProfile.BATHYMETRY_SOURCE,
+            sourcesDir.resolve("ne_10m_bathymetry_all.zip"),
+            "https://naciscdn.org/naturalearth/10m/physical/ne_10m_bathymetry_all.zip")
+        .setOutput(dataDir.resolve("output.mbtiles"));
 
     for (int category : EsaHandler.categories) {
       for (int k : EsaHandler.zoom) {
         p.addGeoPackageSource("EPSG:4326",
             String.format(GloballandcoverProfile.ESA_WORLD_COVER_SOURCE + "-%d-%d", category, k),
-            Path.of(String.format("../zips/%d-%d.zip", category, k)),
-            "");
+            Path.of(String.format("../zips/%d-%d.zip", category, k)), null);
       }
     }
 
