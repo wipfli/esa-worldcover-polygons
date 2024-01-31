@@ -29,6 +29,7 @@ public class BathymetryHandler implements ForwardingProfile.FeatureProcessor, Fo
         .setPixelTolerance(0.5)
         .setMinZoom(0)
         .setMaxZoom(Math.max(config.maxzoom(), 7))
+        .setSortKey(depth)
         .setAttr("min_depth", depth);
   }
 
