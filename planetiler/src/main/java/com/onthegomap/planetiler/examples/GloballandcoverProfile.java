@@ -3,7 +3,7 @@ package com.onthegomap.planetiler.examples;
 import com.onthegomap.planetiler.*;
 import com.onthegomap.planetiler.config.PlanetilerConfig;
 import com.onthegomap.planetiler.examples.handlers.EsaHandler;
-import com.onthegomap.planetiler.examples.handlers.GlaciatedAreasHandler;
+import com.onthegomap.planetiler.examples.handlers.NaturalEarthHandler;
 import com.onthegomap.planetiler.stats.Stats;
 import com.onthegomap.planetiler.util.Translations;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class GloballandcoverProfile extends ForwardingProfile {
   public static final String ESA_WORLD_COVER_SOURCE = "esa_world_cover";
-  public static final String GLACIATED_AREAS_SOURCE = "natural_earth_glaciated_areas";
+  public static final String NATURAL_EARTH_SOURCE = "natural_earth";
   public static final String LAYER = "globallandcover";
 
   public GloballandcoverProfile(Planetiler runner) {
@@ -21,7 +21,7 @@ public class GloballandcoverProfile extends ForwardingProfile {
   public GloballandcoverProfile(Translations translations, PlanetilerConfig config, Stats stats) {
     List<Handler> layers = List.of(
         new com.onthegomap.planetiler.examples.handlers.EsaHandler(translations, config, stats),
-        new com.onthegomap.planetiler.examples.handlers.GlaciatedAreasHandler(translations, config, stats)
+        new com.onthegomap.planetiler.examples.handlers.NaturalEarthHandler(translations, config, stats)
     );
 
     for (Handler layer : layers) {
@@ -34,8 +34,8 @@ public class GloballandcoverProfile extends ForwardingProfile {
           }
         }
       }
-      if (layer instanceof GlaciatedAreasHandler processor) {
-        registerSourceHandler(GloballandcoverProfile.GLACIATED_AREAS_SOURCE, processor);
+      if (layer instanceof NaturalEarthHandler processor) {
+        registerSourceHandler(GloballandcoverProfile.NATURAL_EARTH_SOURCE, processor);
       }
     }
   }
