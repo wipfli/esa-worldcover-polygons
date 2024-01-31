@@ -24,6 +24,11 @@ public class BathymetryHandler implements ForwardingProfile.FeatureProcessor, Fo
   public void processFeature(SourceFeature sourceFeature, FeatureCollector features) {
     int depth = ((Number) sourceFeature.getTag("depth")).intValue();
 
+    // skip depth 0 since it's already included in globallandcover layer (class water)
+    if (depth == 0) {
+      return;
+    }
+
     features.polygon(LAYER)
         .setBufferPixels(4)
         .setPixelTolerance(0.5)
