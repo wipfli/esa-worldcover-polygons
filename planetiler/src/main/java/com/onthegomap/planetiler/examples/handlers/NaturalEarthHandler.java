@@ -42,6 +42,10 @@ public class NaturalEarthHandler implements ForwardingProfile.FeatureProcessor, 
       return;
     }
 
+    if (!GloballandcoverProfile.includedClasses.contains(info.clazz)) {
+      return;
+    }
+
     features.polygon(GloballandcoverProfile.LAYER)
         .setMinZoom(info.minZoom)
         .setMaxZoom(config.maxzoom())

@@ -51,6 +51,10 @@ public class EsaHandler implements ForwardingProfile.FeatureProcessor, Forwardin
       default -> "";
     };
 
+    if (!GloballandcoverProfile.includedClasses.contains(classification)) {
+      return;
+    }
+
     int zoom = switch (sourceNameParts[2]) {
       case "1" -> 4;
       case "2" -> 5;
