@@ -28,9 +28,9 @@ public class GloballandcoverMain {
     Planetiler p = Planetiler.create(arguments)
         // defer creation of the profile because it depends on data from the runner
         .setProfile(GloballandcoverProfile::new)
-        .addShapefileSource(GloballandcoverProfile.GLACIATED_AREAS_SOURCE,
-            sourcesDir.resolve("ne_10m_glaciated_areas.zip"),
-            "https://naciscdn.org/naturalearth/10m/physical/ne_10m_glaciated_areas.zip")
+        .addShapefileSource(GloballandcoverProfile.NATURAL_EARTH_SOURCE,
+            sourcesDir.resolve("10m_physical.zip"),
+            "https://naciscdn.org/naturalearth/10m/physical/10m_physical.zip")
         .addShapefileSource(GloballandcoverProfile.BATHYMETRY_SOURCE,
             sourcesDir.resolve("ne_10m_bathymetry_all.zip"),
             "https://naciscdn.org/naturalearth/10m/physical/ne_10m_bathymetry_all.zip")

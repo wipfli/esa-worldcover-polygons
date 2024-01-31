@@ -24,9 +24,8 @@ public class EsaHandler implements ForwardingProfile.FeatureProcessor, Forwardin
    * 90 Herbaceous wetland (herbaceous)
    * 95 Mangroves (mangroves)
    * 100 Moss and lichen (moss)
-   * 110 Land (not in ESA or Daylight)
    */
-  public static int[] categories = {10, 20, 30, 40, 50, 60, 90, 95, 100, 110};
+  public static int[] categories = {10, 20, 30, 40, 50, 60, 90, 95, 100};
   public static int[] zoom;
 
   public EsaHandler(Translations translations, PlanetilerConfig config, Stats stats) {
@@ -49,7 +48,6 @@ public class EsaHandler implements ForwardingProfile.FeatureProcessor, Forwardin
       case "90" -> "herbaceous";
       case "95" -> "mangroves";
       case "100" -> "moss";
-      case "110" -> "land";
       default -> "";
     };
 
