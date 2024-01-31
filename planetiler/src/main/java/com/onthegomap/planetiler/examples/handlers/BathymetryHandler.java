@@ -36,7 +36,7 @@ public class BathymetryHandler implements ForwardingProfile.FeatureProcessor, Fo
 
   @Override
   public List<VectorTile.Feature> postProcess(int zoom, List<VectorTile.Feature> items) throws GeometryException {
-    return FeatureMerge.mergeNearbyPolygons(items, 1, 1, 0.1, 0.1);
+    return FeatureMerge.mergeNearbyPolygons(items, 1, 1, 0.2, 0.2);
   }
 
   @Override
