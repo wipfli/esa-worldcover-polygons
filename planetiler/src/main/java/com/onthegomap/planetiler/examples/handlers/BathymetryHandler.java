@@ -14,10 +14,8 @@ import java.util.List;
 
 public class BathymetryHandler implements ForwardingProfile.FeatureProcessor, ForwardingProfile.FeaturePostProcessor {
   public static final String LAYER = "bathymetry";
-  private final PlanetilerConfig config;
 
   public BathymetryHandler(Translations translations, PlanetilerConfig config, Stats stats) {
-    this.config = config;
   }
 
   @Override
@@ -32,8 +30,6 @@ public class BathymetryHandler implements ForwardingProfile.FeatureProcessor, Fo
     features.polygon(LAYER)
         .setBufferPixels(4)
         .setPixelTolerance(0.5)
-        .setMinZoom(0)
-        .setMaxZoom(Math.min(config.maxzoom(), 7))
         .setSortKey(depth)
         .setAttr("min_depth", depth);
   }
