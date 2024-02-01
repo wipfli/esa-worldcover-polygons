@@ -3,7 +3,6 @@ package com.onthegomap.planetiler.examples;
 import com.onthegomap.planetiler.*;
 import com.onthegomap.planetiler.config.PlanetilerConfig;
 import com.onthegomap.planetiler.examples.handlers.BathymetryHandler;
-
 import com.onthegomap.planetiler.examples.handlers.EsaHandler;
 import com.onthegomap.planetiler.examples.handlers.NaturalEarthHandler;
 import com.onthegomap.planetiler.stats.Stats;
