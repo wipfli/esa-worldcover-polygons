@@ -4,6 +4,11 @@
         "global-forest-polygons": {
             "type": "vector",
             "url": "https://tiles.swiss-map.cc/esa-worldcover-polygons.json"
+        },
+        "protomaps": {
+            "type": "vector",
+            "attribution": "<a href=\"https://openstreetmap.org\">©OpenStreetMap</a>",
+            "url": "https://tiles.swiss-map.cc/protomaps-z10.json"
         }
     },
     "layers": [
@@ -15,11 +20,10 @@
             }
         },
         {
-            "id": "landcover-land",
+            "id": "land",
             "type": "fill",
-            "source": "global-forest-polygons",
-            "source-layer": "globallandcover",
-            "filter": ["all", ["==", "class", "land"]],
+            "source": "protomaps",
+            "source-layer": "earth",
             "paint": {
                 "fill-color": "#afeacf"
             }
@@ -85,11 +89,10 @@
             }
         },
         {
-            "id": "landcover-water",
+            "id": "water",
             "type": "fill",
-            "source": "global-forest-polygons",
-            "source-layer": "globallandcover",
-            "filter": ["all", ["==", "class", "water"]],
+            "source": "protomaps",
+            "source-layer": "water",
             "paint": {
                 "fill-color": "#78d5e9"
             }

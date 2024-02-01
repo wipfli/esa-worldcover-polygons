@@ -4,7 +4,7 @@
 
 This repo contains polygons with different spatial resolutions of the <a href="https://worldcover2020.esa.int/">ESA Worldcover dataset</a>, a landuse and landcover raster collection. The polygons can for example be used to generate a landcover vector tileset.
 
-The ESA Worldcover raster images have a spatial resolution of 10 m per pixel. We downsample these images to a resolution of `0.1 / 2 ** k` degrees for `k=0..7` which corresponds at the equator to 11 km per pixel for `k=0` and 87 m per pixel for `k=7`.
+The ESA Worldcover raster images have a spatial resolution of 10 m per pixel. We downsample these images to a resolution of `0.1 / 2 ** k` degrees for `k=0..8` which corresponds at the equator to 11 km per pixel for `k=0` and 44 m per pixel for `k=8`.
 
 The downsampled raster images are then filtered with a median blur and a sieve, then get polygonized, and subsequently the polygons are smoothed with the midpoint method.
 
@@ -28,11 +28,11 @@ https://wipfli.github.io/esa-worldcover-polygons
 
 ## Downloads
 
-GeoPackage polygons (15.94 GB):
+GeoPackage polygons (55.35 GB):
 
 https://pub-726b01260c98468a9387cc0dfcb7386b.r2.dev/esa-worldcover-polygons-gpkg.tar
 
-Vector tiles (3.97 GB):
+Vector tiles (6.31 GB):
 
 https://pub-726b01260c98468a9387cc0dfcb7386b.r2.dev/esa-worldcover-polygons.pmtiles
 

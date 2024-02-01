@@ -36,6 +36,7 @@ public class GloballandcoverMain {
             "https://naciscdn.org/naturalearth/10m/physical/ne_10m_bathymetry_all.zip")
         .setOutput(dataDir.resolve("output.mbtiles"));
 
+
     for (int category : EsaHandler.categories) {
       for (int k : EsaHandler.zoom) {
         p.addGeoPackageSource("EPSG:4326",

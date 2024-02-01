@@ -3,6 +3,7 @@ package com.onthegomap.planetiler.examples;
 import com.onthegomap.planetiler.*;
 import com.onthegomap.planetiler.config.PlanetilerConfig;
 import com.onthegomap.planetiler.examples.handlers.BathymetryHandler;
+
 import com.onthegomap.planetiler.examples.handlers.EsaHandler;
 import com.onthegomap.planetiler.examples.handlers.NaturalEarthHandler;
 import com.onthegomap.planetiler.stats.Stats;
@@ -17,6 +18,7 @@ public class GloballandcoverProfile extends ForwardingProfile {
   public static final String NATURAL_EARTH_SOURCE = "natural_earth";
   public static final String LAYER = "globallandcover";
   public static List<String> includedClasses;
+
 
   public GloballandcoverProfile(Planetiler runner) {
     this(runner.translations(), runner.config(), runner.stats());
@@ -61,6 +63,7 @@ public class GloballandcoverProfile extends ForwardingProfile {
   @Override
   public String description() {
     return "Land cover as polygons for the whole world, the following coverages are classified: " + String.join(", ", includedClasses) + ". Additionally bathymetry is included.";
+
   }
 
   @Override
