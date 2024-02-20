@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repo contains polygons with different spatial resolutions of the <a href="https://worldcover2020.esa.int/">ESA Worldcover dataset</a>, a landuse and landcover raster collection. The polygons can for example be used to generate a landcover vector tileset.
+This repo contains polygons with different spatial resolutions of the <a href="https://worldcover2021.esa.int/">ESA Worldcover dataset</a>, a landuse and landcover raster collection. The polygons can for example be used to generate a landcover vector tileset.
 
 The ESA Worldcover raster images have a spatial resolution of 10 m per pixel. We downsample these images to a resolution of `0.1 / 2 ** k` degrees for `k=0..8` which corresponds at the equator to 11 km per pixel for `k=0` and 44 m per pixel for `k=8`.
 
@@ -14,7 +14,7 @@ To keep the size of images roughly equal, we subdivide the latitude range -85 to
 
 The code in this repository is licensed as MIT.
 
-The ESA Worldcover dataset is licensed as Creative Commons Attribution 4.0 International License, see Terms of use at https://worldcover2020.esa.int/download.
+The ESA Worldcover dataset is licensed as Creative Commons Attribution 4.0 International License, see Terms of use at https://worldcover2021.esa.int/download.
 
 Using the ESA Worldcover polygons from this repo requires attribution to the original ESA Worldcover dataset.
 

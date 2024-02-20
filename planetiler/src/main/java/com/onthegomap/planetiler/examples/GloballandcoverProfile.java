@@ -67,6 +67,6 @@ public class GloballandcoverProfile extends ForwardingProfile {
 
   @Override
   public String attribution() {
-    return "<a href=\"https://worldcover2020.esa.int\">© ESA WorldCover</a>";
+    return "<a href=\"https://worldcover2021.esa.int\">© ESA WorldCover</a>";
   }
 }
