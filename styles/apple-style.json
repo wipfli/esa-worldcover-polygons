@@ -25,7 +25,7 @@
             "source": "protomaps",
             "source-layer": "earth",
             "paint": {
-                "fill-color": "#ceebb3"
+                "fill-color": "#d4eebc"
             }
         },
         {
@@ -35,7 +35,7 @@
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "grass"]],
             "paint": {
-                "fill-color": "#ceebb3"
+                "fill-color": "#d4eebc"
             }
         },
         {
@@ -45,7 +45,7 @@
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "crop"]],
             "paint": {
-                "fill-color": "#daecb6"
+                "fill-color": "#e0f0c0"
             }
         },
         {
@@ -85,7 +85,7 @@
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "tree"]],
             "paint": {
-                "fill-color": "#c2e2a3"
+                "fill-color": "#c1e4a8"
             }
         },
         {
