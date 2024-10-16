@@ -9,10 +9,9 @@ import com.onthegomap.planetiler.geo.GeometryException;
 import com.onthegomap.planetiler.reader.SourceFeature;
 import com.onthegomap.planetiler.stats.Stats;
 import com.onthegomap.planetiler.util.Translations;
-
 import java.util.List;
 
-public class BathymetryHandler implements ForwardingProfile.FeatureProcessor, ForwardingProfile.FeaturePostProcessor {
+public class BathymetryHandler implements ForwardingProfile.FeatureProcessor, ForwardingProfile.LayerPostProcesser {
   public static final String LAYER = "bathymetry";
 
   public BathymetryHandler(Translations translations, PlanetilerConfig config, Stats stats) {
@@ -20,6 +19,10 @@ public class BathymetryHandler implements ForwardingProfile.FeatureProcessor, Fo
 
   @Override
   public void processFeature(SourceFeature sourceFeature, FeatureCollector features) {
+    if (!sourceFeature.getSource().contains("bathy")) {
+      return;
+    }
+
     int depth = ((Number) sourceFeature.getTag("depth")).intValue();
 
     // skip depth 0 since it's already included in globallandcover layer (class water)

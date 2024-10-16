@@ -10,10 +10,9 @@ import com.onthegomap.planetiler.geo.GeometryException;
 import com.onthegomap.planetiler.reader.SourceFeature;
 import com.onthegomap.planetiler.stats.Stats;
 import com.onthegomap.planetiler.util.Translations;
-
 import java.util.List;
 
-public class NaturalEarthHandler implements ForwardingProfile.FeatureProcessor, ForwardingProfile.FeaturePostProcessor {
+public class NaturalEarthHandler implements ForwardingProfile.FeatureProcessor, ForwardingProfile.LayerPostProcesser {
   private final PlanetilerConfig config;
 
   public NaturalEarthHandler(Translations translations, PlanetilerConfig config, Stats stats) {
@@ -22,6 +21,9 @@ public class NaturalEarthHandler implements ForwardingProfile.FeatureProcessor, 
 
   @Override
   public void processFeature(SourceFeature sourceFeature, FeatureCollector features) {
+    if (!sourceFeature.getSource().contains("natural")) {
+      return;
+    }
     Object minZoomTag = sourceFeature.getTag("min_zoom");
 
     if (minZoomTag == null) {

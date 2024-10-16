@@ -10,10 +10,9 @@ import com.onthegomap.planetiler.geo.GeometryException;
 import com.onthegomap.planetiler.reader.SourceFeature;
 import com.onthegomap.planetiler.stats.Stats;
 import com.onthegomap.planetiler.util.Translations;
-
 import java.util.List;
 
-public class EsaHandler implements ForwardingProfile.FeatureProcessor, ForwardingProfile.FeaturePostProcessor {
+public class EsaHandler implements ForwardingProfile.FeatureProcessor, ForwardingProfile.LayerPostProcesser {
   /**
    * 10 Tree cover (tree)
    * 20 Shrubland (shrub)
@@ -33,6 +32,9 @@ public class EsaHandler implements ForwardingProfile.FeatureProcessor, Forwardin
 
   @Override
   public void processFeature(SourceFeature sourceFeature, FeatureCollector features) {
+    if (!sourceFeature.getSource().contains("esa")) {
+      return;
+    }
     double pixelTolerance = 0.5;
     String sourceName = sourceFeature.getSource();
 
