@@ -24,7 +24,7 @@ public class EsaHandler implements ForwardingProfile.FeatureProcessor, Forwardin
    * 95 Mangroves (mangroves)
    * 100 Moss and lichen (moss)
    */
-  public static int[] categories = {10, 20, 30, 40, 50, 60, 90, 95, 100};
+  public static int[] categories = {10};
   public static int[] zoom;
 
   public EsaHandler(Translations translations, PlanetilerConfig config, Stats stats) {
