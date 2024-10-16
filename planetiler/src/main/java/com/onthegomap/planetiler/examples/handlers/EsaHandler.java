@@ -20,11 +20,12 @@ public class EsaHandler implements ForwardingProfile.FeatureProcessor, Forwardin
    * 40 Cropland (crop)
    * 50 Built-up (urban)
    * 60 Bare / sparse vegetation (barren)
+   * 70 Snow and ice (ice)
    * 90 Herbaceous wetland (herbaceous)
    * 95 Mangroves (mangroves)
    * 100 Moss and lichen (moss)
    */
-  public static int[] categories = {10};
+  public static int[] categories = {10, 20, 40, 60, 70, 90, 95, 100};
   public static int[] zoom;
 
   public EsaHandler(Translations translations, PlanetilerConfig config, Stats stats) {
@@ -44,6 +45,7 @@ public class EsaHandler implements ForwardingProfile.FeatureProcessor, Forwardin
       case "40" -> "crop";
       case "50" -> "urban";
       case "60" -> "barren";
+      case "70" -> "ice";
       case "90" -> "herbaceous";
       case "95" -> "mangroves";
       case "100" -> "moss";
