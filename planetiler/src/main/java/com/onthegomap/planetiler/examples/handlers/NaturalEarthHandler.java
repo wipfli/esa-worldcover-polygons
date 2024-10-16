@@ -24,9 +24,6 @@ public class NaturalEarthHandler implements ForwardingProfile.FeatureProcessor, 
 
   @Override
   public void processFeature(SourceFeature sourceFeature, FeatureCollector features) {
-    if (!sourceFeature.getSource().contains("natural")) {
-      return;
-    }
     Object minZoomTag = sourceFeature.getTag("min_zoom");
 
     if (minZoomTag == null) {

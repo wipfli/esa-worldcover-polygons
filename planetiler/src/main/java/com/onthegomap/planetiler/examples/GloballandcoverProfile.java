@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 
 public class GloballandcoverProfile extends ForwardingProfile {
   public static final String ESA_WORLD_COVER_SOURCE = "esa_world_cover";
-  public static final String BATHYMETRY_SOURCE = "natural_earth_bathymetry";
   public static final String NATURAL_EARTH_SOURCE = "natural_earth";
   public static final String LAYER = "globallandcover";
   public static List<String> includedClasses;
@@ -29,7 +28,6 @@ public class GloballandcoverProfile extends ForwardingProfile {
         .collect(Collectors.toList());
 
     EsaHandler esa = new EsaHandler(translations, config, stats);
-    registerHandler(esa);
     for (int category : EsaHandler.categories) {
       for (int k : EsaHandler.zoom) {
         String source = String.format(GloballandcoverProfile.ESA_WORLD_COVER_SOURCE + "-%d-%d", category, k);
@@ -38,13 +36,7 @@ public class GloballandcoverProfile extends ForwardingProfile {
     }
 
     NaturalEarthHandler naturalEarth = new NaturalEarthHandler(translations, config, stats);
-    registerHandler(naturalEarth);
     registerSourceHandler(GloballandcoverProfile.NATURAL_EARTH_SOURCE, naturalEarth::processFeature);
-
-    // BathymetryHandler bathymetry = new BathymetryHandler(translations, config, stats);
-    // registerHandler(bathymetry);
-    // registerSourceHandler(GloballandcoverProfile.BATHYMETRY_SOURCE, bathymetry::processFeature);
-
   }
 
   @Override
@@ -54,8 +46,7 @@ public class GloballandcoverProfile extends ForwardingProfile {
 
   @Override
   public String description() {
-    return "Land cover as polygons for the whole world, the following coverages are classified: " + String.join(", ", includedClasses) + ". Additionally bathymetry is included.";
-
+    return "Land cover as polygons for the whole world, the following coverages are classified: " + String.join(", ", includedClasses) + ".";
   }
 
   @Override

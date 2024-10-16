@@ -32,9 +32,6 @@ public class EsaHandler implements ForwardingProfile.FeatureProcessor, Forwardin
 
   @Override
   public void processFeature(SourceFeature sourceFeature, FeatureCollector features) {
-    if (!sourceFeature.getSource().contains("esa")) {
-      return;
-    }
     double pixelTolerance = 0.5;
     String sourceName = sourceFeature.getSource();
 
