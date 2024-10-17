@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <title>ESA Worldcover Polygons</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
-    <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
     <style>
         body {
             margin: 0;
@@ -31,6 +31,7 @@
 <body>
     <div id="map"></div>
     <select id="styles" class="dropdownSelect">
+        <option value="google-style-v2">Google Colors v2</option>
         <option value="esa-style">ESA Colors</option>
         <option value="apple-style">Apple Colors</option>
         <option value="google-style">Google Colors</option>
@@ -43,7 +44,7 @@
             center: [11, 0],
             zoom: 1.5,
             hash: true,
-            style: "styles/esa-style.json"
+            style: "styles/google-style-v2.json"
         });
         map.setMaxZoom(11.5);
 

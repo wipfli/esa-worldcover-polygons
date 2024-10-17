@@ -3,7 +3,6 @@ package com.onthegomap.planetiler.examples;
 import com.onthegomap.planetiler.Planetiler;
 import com.onthegomap.planetiler.config.Arguments;
 import com.onthegomap.planetiler.examples.handlers.EsaHandler;
-
 import java.nio.file.Path;
 import java.util.stream.IntStream;
 
@@ -31,9 +30,6 @@ public class GloballandcoverMain {
         .addShapefileSource(GloballandcoverProfile.NATURAL_EARTH_SOURCE,
             sourcesDir.resolve("10m_physical.zip"),
             "https://naciscdn.org/naturalearth/10m/physical/10m_physical.zip")
-        .addShapefileSource(GloballandcoverProfile.BATHYMETRY_SOURCE,
-            sourcesDir.resolve("ne_10m_bathymetry_all.zip"),
-            "https://naciscdn.org/naturalearth/10m/physical/ne_10m_bathymetry_all.zip")
         .setOutput(dataDir.resolve("output.mbtiles"));
 
 

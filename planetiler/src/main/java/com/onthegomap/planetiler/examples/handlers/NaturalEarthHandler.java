@@ -10,10 +10,10 @@ import com.onthegomap.planetiler.geo.GeometryException;
 import com.onthegomap.planetiler.reader.SourceFeature;
 import com.onthegomap.planetiler.stats.Stats;
 import com.onthegomap.planetiler.util.Translations;
-
 import java.util.List;
+import org.locationtech.jts.geom.Point;
 
-public class NaturalEarthHandler implements ForwardingProfile.FeatureProcessor, ForwardingProfile.FeaturePostProcessor {
+public class NaturalEarthHandler implements ForwardingProfile.FeatureProcessor, ForwardingProfile.LayerPostProcesser {
   private final PlanetilerConfig config;
 
   public NaturalEarthHandler(Translations translations, PlanetilerConfig config, Stats stats) {
@@ -22,6 +22,10 @@ public class NaturalEarthHandler implements ForwardingProfile.FeatureProcessor, 
 
   @Override
   public void processFeature(SourceFeature sourceFeature, FeatureCollector features) {
+    // This check should not be necessary, but the NE handler gets called with esa data.
+    if (!sourceFeature.getSource().contains("natural")) {
+      return;
+    }
     Object minZoomTag = sourceFeature.getTag("min_zoom");
 
     if (minZoomTag == null) {
@@ -34,7 +38,7 @@ public class NaturalEarthHandler implements ForwardingProfile.FeatureProcessor, 
     NaturalEarthInfo info = switch (sourceFeature.getSourceLayer()) {
       case "ne_10m_ocean" -> new NaturalEarthInfo(minZoom, "water");
       case "ne_10m_land", "ne_10m_minor_islands" -> new NaturalEarthInfo(minZoom, "land");
-      case "ne_10m_glaciated_areas" -> new NaturalEarthInfo(minZoom, "ice");
+      case "ne_10m_glaciated_areas" -> new NaturalEarthInfo(0, "snow");
       default -> null;
     };
 
@@ -46,10 +50,21 @@ public class NaturalEarthHandler implements ForwardingProfile.FeatureProcessor, 
       return;
     }
 
+    if (sourceFeature.getSourceLayer().equals("ne_10m_glaciated_areas")) {
+      try {
+        Point centroid = (Point) sourceFeature.centroid();
+        if (centroid.getY() < 0.7) {
+          return;
+        }
+      } catch (GeometryException e) {
+        System.out.println("Error: " + e);
+      }
+    }
+
     features.polygon(GloballandcoverProfile.LAYER)
         .setMinZoom(info.minZoom)
         .setMaxZoom(config.maxzoom())
-        .setAttr("class", info.clazz);
+        .setAttr("class", info.clazz);    
   }
 
   @Override
