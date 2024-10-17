@@ -1,7 +1,7 @@
 {
     "version": 8,
     "sources": {
-        "global-forest-polygons": {
+        "esa-worldcover-polygons": {
             "type": "vector",
             "url": "https://tiles.swiss-map.cc/esa-worldcover-polygons-v2.json"
         }
@@ -20,7 +20,7 @@
         {
             "id": "landcover-land",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["==", "class", "land"],
             "layout": {
@@ -41,7 +41,7 @@
         {
             "id": "landcover-crop",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["==", "class", "crop"],
             "paint": {
@@ -59,7 +59,7 @@
         {
             "id": "landcover-crop-outline",
             "type": "line",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["==", "class", "crop"],
             "paint": {
@@ -79,7 +79,7 @@
         {
             "id": "landcover-barren",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["==", "class", "barren"],
             "paint": {
@@ -97,7 +97,7 @@
         {
             "id": "landcover-barren-outline",
             "type": "line",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["==", "class", "barren"],
             "paint": {
@@ -117,7 +117,7 @@
         {
             "id": "landcover-snow",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["==", "class", "snow"],
             "paint": {
@@ -134,7 +134,7 @@
         {
             "id": "landcover-snow-outline",
             "type": "line",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["==", "class", "snow"],
             "paint": {
@@ -153,7 +153,7 @@
         {
             "id": "landcover-forest",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["==", "class", "forest"],
             "paint": {
@@ -171,7 +171,7 @@
         {
             "id": "landcover-forest-outline",
             "type": "line",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["==", "class", "forest"],
             "paint": {
@@ -191,7 +191,7 @@
         {
             "id": "landcover-moss-wetland-mangroves",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": [
                 "any", 
@@ -213,7 +213,7 @@
         {
             "id": "landcover-moss-wetland-mangroves-outline",
             "type": "line",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": [
                 "any", 
@@ -237,7 +237,7 @@
         {
             "id": "water",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "water"]],
             "layout": {

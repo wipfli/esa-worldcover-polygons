@@ -1,7 +1,7 @@
 {
     "version": 8,
     "sources": {
-        "global-forest-polygons": {
+        "esa-worldcover-polygons": {
             "type": "vector",
             "url": "https://tiles.swiss-map.cc/esa-worldcover-polygons.json"
         }
@@ -17,7 +17,7 @@
         {
             "id": "landcover-110",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "land"]],
             "paint": {
@@ -27,7 +27,7 @@
         {
             "id": "landcover-10",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "tree"]],
             "paint": {
@@ -37,7 +37,7 @@
         {
             "id": "landcover-20",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "shrub"]],
             "paint": {
@@ -47,7 +47,7 @@
         {
             "id": "landcover-30",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "grass"]],
             "paint": {
@@ -57,7 +57,7 @@
         {
             "id": "landcover-40",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "crop"]],
             "paint": {
@@ -67,7 +67,7 @@
         {
             "id": "landcover-50",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "urban"]],
             "paint": {
@@ -77,7 +77,7 @@
         {
             "id": "landcover-60",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "barren"]],
             "paint": {
@@ -87,7 +87,7 @@
         {
             "id": "landcover-70",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "ice"]],
             "paint": {
@@ -97,7 +97,7 @@
         {
             "id": "landcover-80",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "water"]],
             "paint": {
@@ -107,7 +107,7 @@
         {
             "id": "landcover-90",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "herbaceous"]],
             "paint": {
@@ -117,7 +117,7 @@
         {
             "id": "landcover-95",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "mangroves"]],
             "paint": {
@@ -127,7 +127,7 @@
         {
             "id": "landcover-100",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "moss"]],
             "paint": {

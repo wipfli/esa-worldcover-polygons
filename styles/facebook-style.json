@@ -1,7 +1,7 @@
 {
     "version": 8,
     "sources": {
-        "global-forest-polygons": {
+        "esa-worldcover-polygons": {
             "type": "vector",
             "url": "https://tiles.swiss-map.cc/esa-worldcover-polygons.json"
         },
@@ -31,7 +31,7 @@
         {
             "id": "landcover-grass",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "grass"]],
             "paint": {
@@ -41,7 +41,7 @@
         {
             "id": "landcover-shrub",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "shrub"]],
             "paint": {
@@ -51,7 +51,7 @@
         {
             "id": "landcover-crops",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "crop"]],
             "paint": {
@@ -61,7 +61,7 @@
         {
             "id": "landcover-bare",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "barren"]],
             "paint": {
@@ -71,7 +71,7 @@
         {
             "id": "landcover-snow",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "ice"]],
             "paint": {
@@ -81,7 +81,7 @@
         {
             "id": "landcover-built-up",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "urban"]],
             "paint": {
@@ -91,7 +91,7 @@
         {
             "id": "landcover-forest",
             "type": "fill",
-            "source": "global-forest-polygons",
+            "source": "esa-worldcover-polygons",
             "source-layer": "globallandcover",
             "filter": ["all", ["==", "class", "tree"]],
             "paint": {
