@@ -22,6 +22,10 @@ public class NaturalEarthHandler implements ForwardingProfile.FeatureProcessor, 
 
   @Override
   public void processFeature(SourceFeature sourceFeature, FeatureCollector features) {
+    // This check should not be necessary, but the NE handler gets called with esa data.
+    if (!sourceFeature.getSource().contains("natural")) {
+      return;
+    }
     Object minZoomTag = sourceFeature.getTag("min_zoom");
 
     if (minZoomTag == null) {
@@ -34,7 +38,7 @@ public class NaturalEarthHandler implements ForwardingProfile.FeatureProcessor, 
     NaturalEarthInfo info = switch (sourceFeature.getSourceLayer()) {
       case "ne_10m_ocean" -> new NaturalEarthInfo(minZoom, "water");
       case "ne_10m_land", "ne_10m_minor_islands" -> new NaturalEarthInfo(minZoom, "land");
-      case "ne_10m_glaciated_areas" -> new NaturalEarthInfo(0, "ice");
+      case "ne_10m_glaciated_areas" -> new NaturalEarthInfo(0, "snow");
       default -> null;
     };
 

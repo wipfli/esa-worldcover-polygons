@@ -22,12 +22,13 @@ public class GloballandcoverProfile extends ForwardingProfile {
   }
 
   public GloballandcoverProfile(Translations translations, PlanetilerConfig config, Stats stats) {
-    List<String> availableClasses = List.of("tree", "shrub", "grass", "crop", "urban", "barren", "ice", "water", "herbaceous", "mangroves", "moss", "land");
+    List<String> availableClasses = List.of("forest", "shrub", "grass", "crop", "urban", "barren", "snow", "water", "wetland", "mangroves", "moss", "land");
     List<String> excludedClasses = config.arguments().getList("exclude_classes", "Exclude certain classes", List.of());
     includedClasses = availableClasses.stream().filter(i -> !excludedClasses.contains(i))
         .collect(Collectors.toList());
 
     EsaHandler esa = new EsaHandler(translations, config, stats);
+    registerHandler(esa);
     for (int category : EsaHandler.categories) {
       for (int k : EsaHandler.zoom) {
         String source = String.format(GloballandcoverProfile.ESA_WORLD_COVER_SOURCE + "-%d-%d", category, k);
@@ -36,6 +37,7 @@ public class GloballandcoverProfile extends ForwardingProfile {
     }
 
     NaturalEarthHandler naturalEarth = new NaturalEarthHandler(translations, config, stats);
+    registerFeatureHandler(naturalEarth);
     registerSourceHandler(GloballandcoverProfile.NATURAL_EARTH_SOURCE, naturalEarth::processFeature);
   }
 
