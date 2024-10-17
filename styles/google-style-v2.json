@@ -1,0 +1,257 @@
+{
+    "version": 8,
+    "sources": {
+        "global-forest-polygons": {
+            "type": "vector",
+            "url": "https://tiles.swiss-map.cc/esa-worldcover-polygons-v2.json"
+        }
+    },
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "background-color": "#f2efe9"
+            }
+        },
+        {
+            "id": "landcover-land",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "globallandcover",
+            "filter": ["==", "class", "land"],
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0, "#BBECD8",
+                    4, "#BBECD8",
+                    7, "#CFF6E0",
+                    9, "#D3F8E2"
+                ]
+            }
+        },
+        {
+            "id": "landcover-crop",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "globallandcover",
+            "filter": ["==", "class", "crop"],
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0, "#A7E6CC",
+                    3, "#A7E6CC",
+                    7, "#BFF2D5",
+                    9, "#D3F8E2"
+                ]
+            }
+        },
+        {
+            "id": "landcover-crop-outline",
+            "type": "line",
+            "source": "global-forest-polygons",
+            "source-layer": "globallandcover",
+            "filter": ["==", "class", "crop"],
+            "paint": {
+                "line-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0, "#A7E6CC",
+                    3, "#A7E6CC",
+                    7, "#BFF2D5",
+                    9, "#D3F8E2"
+                ],
+                "line-width": 1.1,
+                "line-blur": 1.0
+            }
+        },
+        {
+            "id": "landcover-barren",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "globallandcover",
+            "filter": ["==", "class", "barren"],
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0, "#F5F0E4",
+                    3, "#FBF8F3",
+                    7, "#FBF8F3",
+                    9, "#F5F0E6"
+                ]
+            }
+        },
+        {
+            "id": "landcover-barren-outline",
+            "type": "line",
+            "source": "global-forest-polygons",
+            "source-layer": "globallandcover",
+            "filter": ["==", "class", "barren"],
+            "paint": {
+                "line-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0, "#F5F0E4",
+                    3, "#FBF8F3",
+                    7, "#FBF8F3",
+                    9, "#F5F0E6"
+                ],
+                "line-blur": 1.0,
+                "line-width": 1.1
+            }
+        },
+        {
+            "id": "landcover-snow",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "globallandcover",
+            "filter": ["==", "class", "snow"],
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0, "#FFFFFF",
+                    11, "#FFFFFF",
+                    13, "#EBE9E5"
+                ]
+            }
+        },
+        {
+            "id": "landcover-snow-outline",
+            "type": "line",
+            "source": "global-forest-polygons",
+            "source-layer": "globallandcover",
+            "filter": ["==", "class", "snow"],
+            "paint": {
+                "line-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0, "#FFFFFF",
+                    11, "#FFFFFF",
+                    13, "#EBE9E5"
+                ],
+                "line-blur": 1.0,
+                "line-width": 1.1
+            }
+        },
+        {
+            "id": "landcover-forest",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "globallandcover",
+            "filter": ["==", "class", "forest"],
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],                
+                    0, "#90E0BE",
+                    4, "#90E0BE",
+                    7, "#AFEFCA",
+                    9, "#D3F8E2"
+                ]
+            }
+        },
+        {
+            "id": "landcover-forest-outline",
+            "type": "line",
+            "source": "global-forest-polygons",
+            "source-layer": "globallandcover",
+            "filter": ["==", "class", "forest"],
+            "paint": {
+                "line-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],                
+                    0, "#90E0BE",
+                    4, "#90E0BE",
+                    7, "#AFEFCA",
+                    9, "#D3F8E2"
+                ],
+                "line-blur": 1.0,
+                "line-width": 1.1
+            }
+        },
+        {
+            "id": "landcover-moss-wetland-mangroves",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "globallandcover",
+            "filter": [
+                "any", 
+                ["==", "class", "moss"],
+                ["==", "class", "wetland"],
+                ["==", "class", "mangroves"]
+            ],
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0, "#CCD0CB",
+                    8, "#CCD0CB",
+                    11, "#F5F0E5"
+                ]
+            }
+        },
+        {
+            "id": "landcover-moss-wetland-mangroves-outline",
+            "type": "line",
+            "source": "global-forest-polygons",
+            "source-layer": "globallandcover",
+            "filter": [
+                "any", 
+                ["==", "class", "moss"],
+                ["==", "class", "wetland"],
+                ["==", "class", "mangroves"]
+            ],
+            "paint": {
+                "line-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0, "#CCD0CB",
+                    8, "#CCD0CB",
+                    11, "#F5F0E5"
+                ],
+                "line-blur": 1.0,
+                "line-width": 1.1
+            }
+        },
+        {
+            "id": "water",
+            "type": "fill",
+            "source": "global-forest-polygons",
+            "source-layer": "globallandcover",
+            "filter": ["all", ["==", "class", "water"]],
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"], 
+                    0, "#54CEE3",
+                    9, "#90DAEE"
+                ]
+            }
+        }
+    ]
+}

@@ -32,9 +32,13 @@ GeoPackage polygons (55.35 GB):
 
 https://pub-726b01260c98468a9387cc0dfcb7386b.r2.dev/esa-worldcover-polygons-gpkg.tar
 
-Vector tiles (6.31 GB):
+Vector tiles v1, z0 - z11 (6.31 GB):
 
 https://pub-726b01260c98468a9387cc0dfcb7386b.r2.dev/esa-worldcover-polygons.pmtiles
+
+Vector tiles v2, z0 - z9 (401 MB):
+
+https://pub-726b01260c98468a9387cc0dfcb7386b.r2.dev/esa-worldcover-polygons-v2.pmtiles
 
 ## Steps
 
